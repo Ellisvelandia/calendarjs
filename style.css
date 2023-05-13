@@ -1,0 +1,146 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  list-style: none;
+}
+
+:root {
+  --primary: #576cbc;
+  --blue: #2192ff;
+  --blue-light: rgba(33, 146, 255, 0.2);
+  --white: #ffffff;
+  --black: #000000;
+  --red: #eb455f;
+  --grey: #d8d8d8;
+  --grey-dark: #b2b2b2;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--primary);
+}
+
+.container {
+  width: 400px;
+  background-color: var(--white);
+  padding: 2rem;
+  border-radius: 20px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2rem;
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--blue);
+}
+
+.header i {
+  width: 45px;
+  line-height: 45px;
+  text-align: center;
+  padding: 0.4rem;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3 ease-in-out;
+}
+
+.header i:hover {
+  background-color: var(--blue-light);
+}
+
+.header p {
+  margin: 0 2rem;
+}
+
+.calendar ul {
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.calendar ul li {
+  width: calc(100% / 7);
+  font-weight: 500;
+}
+
+.weeks {
+  font-size: 1.1rem;
+}
+
+.days li {
+  position: relative;
+  margin-top: 2rem;
+  cursor: pointer;
+  z-index: 0;
+}
+
+.days li::before {
+  position: absolute;
+  content: "";
+  width: 45px;
+  height: 45px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  z-index: -1;
+  background-position: -45px 0;
+  transition: background-color 0.3s ease-out, background-position 0.5s ease,
+    color 0.3s ease-out;
+}
+
+.days li:hover::before {
+  background-image: linear-gradient(var(--grey), var(--grey-dark));
+  background-repeat: no-repeat;
+  background-position: 0 0;
+}
+
+.red {
+  color: var(--red);
+}
+
+.blue {
+  color: var(--blue);
+}
+
+.days li.red:hover {
+  color: var(--white);
+}
+
+.days li.red:hover::before {
+  background-image: linear-gradient(var(--red), var(--red));
+}
+
+.days li.blue:hover {
+  color: var(--white);
+}
+
+.days li.blue:hover::before {
+  background-image: linear-gradient(var(--blue), var(--blue));
+}
+
+.days .inactive {
+  color: var(--grey-dark);
+}
+
+.days .inactive:hover{
+  color: var(--white);
+}
+
+.days li.bg-blue,
+.days li.bg-blue:hover {
+  color: var(--white);
+}
+
+.days li.bg-blue::before,
+.days li.bg-blue:hover::before {
+  background-color: var(--blue);
+}
